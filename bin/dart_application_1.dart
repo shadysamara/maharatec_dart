@@ -1,9 +1,17 @@
+import 'dart:developer';
+import './enums.dart';
 import 'package:dart_application_1/dart_application_1.dart'
     as dart_application_1;
 
+import 'assignemnt1/data.dart';
+import 'assignemnt1/product_model.dart';
 import 'course.dart';
 import 'department.dart';
 import 'employee.dart';
+import 'exc1/animal.dart';
+import 'exc1/dog.dart';
+import 'exc1/mixin_test.dart';
+import 'manager.dart';
 import 'student.dart';
 
 void main(List<String> arguments) {
@@ -98,17 +106,37 @@ void main(List<String> arguments) {
 
   // define new constructor for student class that will
   // assign values to student's attributes using map
-  Map<String, dynamic> map = {
-    'id': 1,
-    "name": "omar",
-    "isMale": true,
-    "courses": [
-      {"name": "arabic", "hours": 3, "mark": 90},
-      {"name": "math", "hours": 2, "mark": 92},
-      {"name": "english", "hours": 2, "mark": 88}
-    ],
-    "department": {'name': "IT", "manager": "hani", "count": 600}
-  };
-  Student student = Student.fromMap(map);
-  print(student.courses![1].courseName);
+  // Map<String, dynamic> map = {
+  //   'id': 1,
+  //   "name": "omar",
+  //   "isMale": true,
+  //   "courses": [
+  //     {"name": "arabic", "hours": 3, "mark": 90},
+  //     {"name": "math", "hours": 2, "mark": 92},
+  //     {"name": "english", "hours": 2, "mark": 88}
+  //   ],
+  //   "department": {'name': "IT", "manager": "hani", "count": 600}
+  // };
+  // Student student = Student.fromMap(map);
+
+  List<ProductModel> products = data.map((e) {
+    return ProductModel.fromMap(e);
+  }).toList();
+
+  List<Map<String, dynamic>> dataAgain = products.map((e) {
+    return e.toMap();
+  }).toList();
+
+  print('items count in data list is: ${data.length}');
+  print('items count in products list is: ${products.length}');
+
+  Manager manager = Manager(10, "ahmed", 200.5);
+  //1-  define super class called animal which has the following attributes
+// name as string, type as enum(fly,), movement as function
+// 2- define subclass called dog which inherites the animal class
+// and has the following attributes:
+// color as string, gender as boolean
+// define positional constructor for each class
+  C c = C();
+  
 }
